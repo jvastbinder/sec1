@@ -11,6 +11,8 @@ int main(int argc, char *argv[])
      */
     FILE *inImage, *outImage;
     int startOfPixelArray[1];
+    short imageWidth[1];
+    short imageHeight[1];
 
     inImage       = fopen("sheldon.bmp", "r");
     outImage      = fopen("enc.bmp", "w");
@@ -18,7 +20,13 @@ int main(int argc, char *argv[])
 
     fseek(inImage, 10, SEEK_SET);
     fread(startOfPixelArray, 4, 1, inImage);
+    fseek(inImage, 18, SEEK_SET);
+    fread(imageWidth, 2, 1, inImage);
+    fseek(inImage, 22, SEEK_SET);
+    fread(imageHeight, 2, 1, inImage);
     printf("Pixels start at: %d\n", startOfPixelArray[0]);
+    printf("Width of image: %d\n", imageWidth[0]);
+    printf("Height of image: %d\n", imageHeight[0]);
 
     fclose(inImage);
     fclose(outImage);
