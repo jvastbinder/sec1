@@ -1,0 +1,1 @@
+/usr/bin/cc -g   CMakeFiles/steganography.dir/main.c.o  -o steganography 
