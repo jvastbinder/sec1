@@ -1,4 +1,4 @@
-# Install script for directory: /home/joel/jvastbin/course/cos232/projects/steganography
+# Install script for directory: /home/joel/jvastbin/course/cos232/project/steganography
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

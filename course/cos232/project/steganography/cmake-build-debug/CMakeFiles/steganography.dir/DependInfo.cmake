@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_C
-  "/home/joel/jvastbin/course/cos232/projects/steganography/main.c" "/home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug/CMakeFiles/steganography.dir/main.c.o"
+  "/home/joel/jvastbin/course/cos232/project/steganography/main.c" "/home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles/steganography.dir/main.c.o"
   )
 set(CMAKE_C_COMPILER_ID "GNU")
 

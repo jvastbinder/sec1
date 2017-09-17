@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/joel/jvastbin/course/cos232/projects/steganography/main.c
+/home/joel/jvastbin/course/cos232/project/steganography/main.c
 stdio.h
 -
 

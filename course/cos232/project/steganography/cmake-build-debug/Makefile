@@ -48,10 +48,10 @@ RM = /opt/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joel/jvastbin/course/cos232/projects/steganography
+CMAKE_SOURCE_DIR = /home/joel/jvastbin/course/cos232/project/steganography
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug
+CMAKE_BINARY_DIR = /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug/CMakeFiles /home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/projects/steganography/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
