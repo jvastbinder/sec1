@@ -37,38 +37,24 @@ int len(const char *str)
     return ++count;
 }
 
-void encodeImage(FILE *inImage,
-                 FILE *outImage,
-                 const char *message)
+void readInHeader(FILE *inImage, FILE *outImage, int startOfPixelArray)
 {
-    int startOfPixelArray,
-        sizeOfPixelArray,
-        i,
-        sizeOfFile,
-        messageLen,
-        imageWidth,
-        imageHeight;
     char byte[1];
-    int bit;
-
-    messageLen  = len(message);
-
-    setAndPrintImageInfo(inImage,
-                         &startOfPixelArray,
-                         &sizeOfPixelArray,
-                         &imageWidth,
-                         &imageHeight,
-                         &sizeOfFile);
-
     fseek(inImage, 0, SEEK_SET);
-    for(i = 0; i < startOfPixelArray; ++i)
+    for(int i = 0; i < startOfPixelArray; ++i)
     {
         fread(byte, 1, 1, inImage);
         fwrite(byte, 1, 1, outImage);
     }
-    int messageIdx = 0;
+}
 
-    for(i = 0; i < sizeOfPixelArray; ++i)
+void encodeMessage(FILE *inImage, FILE *outImage, const char *message, int sizeOfPixelArray)
+{
+    char byte[1];
+    int bit;
+    int messageIdx = 0;
+    int messageLen  = len(message);
+    for(int i = 0; i < sizeOfPixelArray; ++i)
     {
         if((((i+1) % 4) && ((messageIdx / 8) <= messageLen)))
         {
@@ -87,18 +73,54 @@ void encodeImage(FILE *inImage,
             fwrite(byte, 1, 1, outImage);
         }
     }
+}
 
-    for(i += startOfPixelArray; i < sizeOfFile; ++i)
+void readInRestOfFile(FILE *inImage, FILE *outImage, int startOfPixelArray, int sizeOfPixelArray)
+{
+    char byte[1];
+    for(int i = startOfPixelArray; i < sizeOfPixelArray; ++i)
     {
         fread(byte, 1, 1, inImage);
         fwrite(byte, 1, 1, outImage);
     }
+}
+void encodeImage(FILE *inImage,
+                 FILE *outImage,
+                 const char *message)
+{
+    int startOfPixelArray,
+        sizeOfPixelArray,
+        sizeOfFile,
+        imageWidth,
+        imageHeight;
+
+    setAndPrintImageInfo(inImage,
+                         &startOfPixelArray,
+                         &sizeOfPixelArray,
+                         &imageWidth,
+                         &imageHeight,
+                         &sizeOfFile);
+
+    readInHeader(inImage,
+                 outImage,
+                 startOfPixelArray);
+
+    encodeMessage(inImage,
+                  outImage,
+                  message,
+                  sizeOfPixelArray);
+
+    readInRestOfFile(inImage, outImage, startOfPixelArray, sizeOfPixelArray);
 
 }
 
 int main(int argc, char *argv[])
 {
     /*
+     * argv[1] = inputfile
+     * argv[2] = outputfile
+     * argv[3] = message
+     *
      * bitmap file header
      * 0: 1 byte file type
      * 1: 2 byte file size

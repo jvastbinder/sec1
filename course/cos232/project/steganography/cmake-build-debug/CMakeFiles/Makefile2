@@ -45,19 +45,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/clion-2017.2.2/bin/cmake/bin/cmake
+CMAKE_COMMAND = /opt/clion-2017.2/bin/cmake/bin/cmake
 
 # The command to remove a file.
-RM = /opt/clion-2017.2.2/bin/cmake/bin/cmake -E remove -f
+RM = /opt/clion-2017.2/bin/cmake/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/joel/jvastbin/course/cos232/project/steganography
+CMAKE_SOURCE_DIR = /home/CS/users/jvastbin/Linux/jvastbin/course/cos232/project/steganography
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug
+CMAKE_BINARY_DIR = /home/CS/users/jvastbin/Linux/jvastbin/course/cos232/project/steganography/cmake-build-debug
 
 #=============================================================================
 # Target rules for target CMakeFiles/steganography.dir
@@ -66,7 +66,7 @@ CMAKE_BINARY_DIR = /home/joel/jvastbin/course/cos232/project/steganography/cmake
 CMakeFiles/steganography.dir/all:
 	$(MAKE) -f CMakeFiles/steganography.dir/build.make CMakeFiles/steganography.dir/depend
 	$(MAKE) -f CMakeFiles/steganography.dir/build.make CMakeFiles/steganography.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target steganography"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/CS/users/jvastbin/Linux/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles --progress-num=1,2 "Built target steganography"
 .PHONY : CMakeFiles/steganography.dir/all
 
 # Include target in all.
@@ -76,9 +76,9 @@ all: CMakeFiles/steganography.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/steganography.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/CS/users/jvastbin/Linux/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/steganography.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/joel/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/CS/users/jvastbin/Linux/jvastbin/course/cos232/project/steganography/cmake-build-debug/CMakeFiles 0
 .PHONY : CMakeFiles/steganography.dir/rule
 
 # Convenience name for target.
