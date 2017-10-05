@@ -35,8 +35,8 @@
       <file leaf-file-name="main.c" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/main.c">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="396">
-              <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+            <state relative-caret-position="378">
+              <caret line="81" column="4" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -58,6 +58,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/main.cpp" />
+        <option value="$PROJECT_DIR$/chowmain.c" />
         <option value="$PROJECT_DIR$/main.c" />
       </list>
     </option>
@@ -126,7 +127,7 @@
     <configuration name="Build All" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" CONFIG_NAME="Debug" EXPLICIT_BUILD_TARGET_NAME="all">
       <envs />
     </configuration>
-    <configuration name="crypto" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="crypto" TARGET_NAME="crypto" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="crypto" RUN_TARGET_NAME="crypto">
+    <configuration name="crypto" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="test.txt -d 15" PASS_PARENT_ENVS_2="true" PROJECT_NAME="crypto" TARGET_NAME="crypto" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="crypto" RUN_TARGET_NAME="crypto">
       <envs />
     </configuration>
     <list size="2">
@@ -154,12 +155,12 @@
       <workItem from="1506631773750" duration="3000" />
       <workItem from="1506636725636" duration="192000" />
       <workItem from="1506637249085" duration="1319000" />
-      <workItem from="1506646140034" duration="17082000" />
+      <workItem from="1506646140034" duration="29323000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="32585000" />
+    <option name="totallyTimeSpent" value="44826000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="774" y="-4" width="1857" height="1092" extended-state="6" />
@@ -194,7 +195,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="2" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -306,10 +307,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/chowmain.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.c">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="396">
-          <caret line="77" column="8" lean-forward="false" selection-start-line="77" selection-start-column="8" selection-end-line="77" selection-end-column="8" />
+        <state relative-caret-position="378">
+          <caret line="81" column="4" lean-forward="false" selection-start-line="81" selection-start-column="4" selection-end-line="81" selection-end-column="4" />
           <folding>
             <element signature="e#0#18#0" expanded="true" />
           </folding>

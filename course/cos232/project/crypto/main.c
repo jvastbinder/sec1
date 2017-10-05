@@ -2,6 +2,13 @@
 #include <stdbool.h>
 #include <stdlib.h>
 
+bool isAlpha(char c);
+bool isNumber(char c);
+char encodeCharacter(char c, int shiftDistance);
+enum ASCII_CATEGORY getASCIICategory(char c);
+short calcCaseOffset(char c);
+void printUsage();
+
 enum ASCII_CATEGORY
 {
     uppercase,
@@ -11,80 +18,68 @@ enum ASCII_CATEGORY
     nonprintable
 };
 
-short calcCaseOffset(char c);
-int len(const char *str);
-bool isAlpha(char c);
-bool isNumber(char c);
-bool stringsEqual(char *s1, char *s2);
-enum ASCII_CATEGORY getASCIICategory(char c);
+int main(int argc, char **argv)
+{
+    char character, *mysterystr;
+    FILE *inputFile;
+    bool modeChosen, numSet, fileNotSet;
+    int shiftDistance = 1;
 
-int main(int argc, char **argv) {
     if(argc > 4)
     {
-        printf("   Usage: ./crypto [-d/-e] [shift distance] [input file path]\n"
-                       "Defaults:           -e      7                stdin");
+        printUsage();
         return 1;
     }
-    char plaintext[1024], character, *notsurehowthisworks;
-    int plaintextLength;
-    int shiftDistance = 7;
-    short letterCaseOffset;
 
+    fileNotSet = true;
 
     for(int i = 1; i < argc; ++i)
     {
         if(argv[i][0] == '-')
         {
-            if((argv[i][1] != 'e') && (argv[i][1] != 'd'))
+            if(!numSet && isNumber(argv[i][1]) )
             {
-                printf("   Usage: ./crypto [-d/-e] [shift distance] [input file path]\n"
-                       "Defaults:           -e      7                stdin");
+                numSet = true;
+                shiftDistance *= -1 * strtol(argv[i], &mysterystr, 10);
+            }
+            else if(modeChosen || ((argv[i][1] != 'e')) && (argv[i][1] != 'd'))
+            {
+                printUsage();
                 return 1;
             }
             if(argv[i][1] == 'd')
             {
-               shiftDistance = -1;
+                shiftDistance = -1;
             }
-
+            modeChosen = true;
         }
-        if(isNumber(argv[i][0]))
+        else if(!numSet && isNumber(argv[i][0]))
         {
-            shiftDistance *= strtol(argv[i], &notsurehowthisworks, 10);
+            numSet = true;
+            shiftDistance *= strtol(argv[i], &mysterystr, 10);
         }
-        if(isAlpha(argv[i][0]))
+        else if (fileNotSet = !(inputFile = fopen(argv[i], "r")))
         {
-           FILE *inFile = fopen(argv[i], "r");
+            printf("%s\n", argv[i]);
+            return 1;
         }
     }
 
-    if(!plaintext)
+    if(fileNotSet)
     {
-        fgets(plaintext, sizeof(plaintext) - 1, stdin);
-        plaintextLength           = len(plaintext);
+        inputFile = stdin;
     }
-
-    char ciphertext[plaintextLength];
-
-    for(int i = 0; i < plaintextLength; ++i)
+    if((shiftDistance == 1) || (shiftDistance == -1))
     {
-        character = plaintext[i];
-        letterCaseOffset = 0;
-        if(isAlpha(character))
-        {
-            letterCaseOffset = calcCaseOffset(character); // Finds start of alphabet based on case of the char
-            character -= letterCaseOffset;                // Changes char value with respect to A/a being 0
-            character += shiftDistance;
-            character %= 26;
-        }
-        character += letterCaseOffset;
-        puts(&character);
+        shiftDistance *= 7;
     }
 
-    ciphertext[plaintextLength - 1] = 0;
-
-    //printf("%s\n", ciphertext);
-
-    return 0;
+    character = (char) getc(inputFile);
+    while(character != EOF)
+    {
+        putc(encodeCharacter(character, shiftDistance), stdout);
+        character = (char) getc(inputFile);
+    }
 }
 
 enum ASCII_CATEGORY getASCIICategory(char c)
@@ -105,21 +100,29 @@ enum ASCII_CATEGORY getASCIICategory(char c)
 
 }
 
+char encodeCharacter(char c, int shiftDistance)
+{
+    if(isAlpha(c))
+    {
+        short letterCaseOffset;
+        letterCaseOffset = calcCaseOffset(c); // Finds start of alphabet based on case of the char
+        c -= letterCaseOffset;                // Changes char value with respect to A/a being 0
+        c += shiftDistance;
+        c %= 26;
+        if(c < 0)
+        {
+            letterCaseOffset += 26;
+        }
+        c += letterCaseOffset;
+    }
+    return c;
+}
+
 short calcCaseOffset(char c)
 {
     if(getASCIICategory(c) == uppercase)
         return 65;
     return 97;
-}
-
-int len(const char *str)
-{
-    int count = 0;
-    while(str[count] != '\0')
-    {
-        count++;
-    }
-    return ++count;
 }
 
 bool isAlpha(char c)
@@ -131,4 +134,10 @@ bool isNumber(char c)
 {
     enum ASCII_CATEGORY category = getASCIICategory(c);
     return category == number;
+}
+
+void printUsage()
+{
+    perror("   Usage: ./crypto [-d/-e] [shift distance] [input file path]\n"
+                   "Defaults:           -e      7                stdin");
 }
