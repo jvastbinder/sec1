@@ -139,5 +139,5 @@ bool isNumber(char c)
 void printUsage()
 {
     perror("   Usage: ./crypto [-d/-e] [shift distance] [input file path]\n"
-                   "Defaults:           -e      7                stdin");
+           "Defaults:           -e      7                stdin");
 }
