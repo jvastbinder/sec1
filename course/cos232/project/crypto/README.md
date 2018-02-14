@@ -1,6 +1,6 @@
-#File Encryption
+# File Encryption
 I used the gpg command line utility to encrypt my file. I used symmetric encryption, because there needed to be a shared secret which both encrypts and decrypts the message. The key is the one shared secret password. I used AES256 as the encryption algorithm. There are advantages such as the speed of encryption, it works fine as long as the key stays secret, and the symmetric nature allows for ease of encryption and decryption. However, if the key is lost then all parties involved are in trouble. Also the distribution of the keys becomes an issue because it is hard to establish a shared secret.
-#Email Encryption
+# Email Encryption
 I first googled "PGP ubuntu" in an attempt to set up PGP easily since Ubuntu is a common Linux distro. I went through the steps to generate the public and private keys, and tried to set up a way to send it through the default installed email client. I could not get this to work. So in the end I found a Chrome extension that worked with gmail to encrypt the emails using PGP and took care of key generation.
 I used asymmetric encryption. I encrypted it with Dr. Stanley's public key and it can only be decrypted with Dr. Stanley's private key. 
 The keys for the system are the users' public and private keys. The public key encrypts the message in such a way that they can only be decrypted by the private key which goes with the public key.
